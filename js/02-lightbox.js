@@ -16,5 +16,7 @@ galleryContainer.insertAdjacentHTML('beforeend', photoContainer);
 console.log(photoContainer);
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: img.alt,
+  captionsData: 'alt',
+  captionDelay: 250,
 });
+console.log(lightbox);
