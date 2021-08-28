@@ -29,18 +29,8 @@ images.forEach(image => {
   });
 
   //keyCode
-
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      image.removeEventListener('click', event => {
-        event.preventDefault();
-
-        basicLightbox
-          .create(
-            `<img width="1400" height="900" src="${image.dataset.source}" loading="lazy" alt="${image.alt}">`
-          )
-          .show();
-      });
     }
     console.log('key: ', e.key);
   });
