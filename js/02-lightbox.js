@@ -15,4 +15,6 @@ const photoContainer = galleryItems
 galleryContainer.insertAdjacentHTML('beforeend', photoContainer);
 console.log(photoContainer);
 
-const lightbox = new SimpleLightbox('.gallery a', {});
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: img.alt,
+});
