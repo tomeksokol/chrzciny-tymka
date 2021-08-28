@@ -14,3 +14,5 @@ const photoContainer = galleryItems
   .join('');
 galleryContainer.insertAdjacentHTML('beforeend', photoContainer);
 console.log(photoContainer);
+
+const lightbox = new SimpleLightbox('.gallery a');
