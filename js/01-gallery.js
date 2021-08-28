@@ -1,56 +1,47 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-// library import
-//import * as basicLightbox from 'https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js';
 
 console.log(galleryItems);
 
 const galleryContainer = document.querySelector('.gallery');
 console.log(galleryContainer);
 
-let ul = document.createElement('ul');
-ul.classList.add('list');
-galleryContainer.append(ul);
-console.log(ul);
+const photoContainer = galleryItems
+  .map(
+    galleryItem =>
+      `<div class="gallery__item"> <a class="gallery__link" href="${galleryItem.original}"> <img class="gallery__image" src="${galleryItem.preview}" data-source="${galleryItem.original}" alt="${galleryItem.description}"/></a> </div>`
+  )
+  .join('');
+galleryContainer.insertAdjacentHTML('beforeend', photoContainer);
+console.log(photoContainer);
 
-const galleryList = document.querySelector('.list');
-console.log(galleryList.children);
-
-const listOfImagesPreview = galleryItems.map(
-  galleryItem =>
-    `<li class="item"> <img class="preview" src="${galleryItem.preview}" loading="lazy" alt="${galleryItem.description}"></li>`
-);
-console.log(listOfImagesPreview);
-galleryList.insertAdjacentHTML('beforeend', listOfImagesPreview);
-
-const listOfImagesOriginal = galleryItems.map(
-  galleryItem =>
-    `<li class="item"> <img class="original" src="${galleryItem.original}" loading="lazy" alt="${galleryItem.description}"></li>`
-);
-console.log(listOfImagesOriginal);
-galleryList.insertAdjacentHTML('beforeend', listOfImagesOriginal);
-
-const hiddenClass = document.querySelectorAll('.original');
-hiddenClass.style.display = 'none';
-
-const images = document.querySelectorAll('img');
+const images = document.querySelectorAll('.gallery__item .gallery__image');
 console.log(images);
 images.forEach(image => {
-  image.addEventListener('click', e => {
+  image.addEventListener('click', event => {
+    event.preventDefault();
+
     basicLightbox
       .create(
-        `<img width="1400" height="900" src="${image.src}" loading="lazy" alt="${galleryItems.src}">`
+        `<img width="1400" height="900" src="${image.dataset.source}" loading="lazy" alt="${image.alt}">`
       )
       .show();
   });
-});
 
-// galleryContainer.addEventListener('click', event => {
-//   galleryItems.map(galleryItem =>
-//     basicLightbox
-//       .create(
-//         `<img width="1400" height="900" src="${galleryItem.original}" loading="lazy" alt="${galleryItem.description}">`
-//       )
-//       .show()
-//   );
-// });
+  //keyCode
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      image.removeEventListener('click', event => {
+        event.preventDefault();
+
+        basicLightbox
+          .create(
+            `<img width="1400" height="900" src="${image.dataset.source}" loading="lazy" alt="${image.alt}">`
+          )
+          .show();
+      });
+    }
+    console.log('key: ', e.key);
+  });
+});
