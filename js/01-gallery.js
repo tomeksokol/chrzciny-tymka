@@ -15,6 +15,13 @@ const photoContainer = galleryItems
 galleryContainer.insertAdjacentHTML('beforeend', photoContainer);
 console.log(photoContainer);
 
+const keyClose = (e, instance) => {
+  if ('Escape' === e.key) {
+    instance.close();
+  }
+  console.log(e.key);
+};
+
 const images = document.querySelectorAll('.gallery__item .gallery__image');
 console.log(images);
 images.forEach(image => {
@@ -23,15 +30,22 @@ images.forEach(image => {
 
     basicLightbox
       .create(
-        `<img width="1400" height="900" src="${image.dataset.source}" loading="lazy" alt="${image.alt}">`
+        `<img width="1400" height="900" src="${image.dataset.source}" loading="lazy" alt="${image.alt}">`,
+        {
+          onClose: instance => {
+            galleryContainer.removeEventListener('keydown', e =>
+              keyClose(e, instance)
+            );
+            return true;
+          },
+          onShow: instance => {
+            galleryContainer.addEventListener('keydown', e =>
+              keyClose(e, instance)
+            );
+            return true;
+          },
+        }
       )
       .show();
-  });
-
-  //keyCode
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-    }
-    console.log('key: ', e.key);
   });
 });
