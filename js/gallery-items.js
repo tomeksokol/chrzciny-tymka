@@ -1,7 +1,7 @@
 export const galleryItems = [
   {
-    preview: '../../images/IMG_3224.JPG',
-    original: '../../images/IMG_3224.JPG',
+    preview: './../images/IMG_3224.JPG',
+    original: './../images/IMG_3224.JPG',
     description: 'Rodzice, Babcia Jola, Gabriel',
   },
   {
@@ -10,18 +10,18 @@ export const galleryItems = [
     description: 'Ciocia Sylwia, Gabriel',
   },
   {
-    preview: '../../images/IMG_3228.JPG',
-    original: '../../images/IMG_3228.JPG',
+    preview: '../images/IMG_3228.JPG',
+    original: '../images/IMG_3228.JPG',
     description: 'Tymek i Babcia',
   },
   {
-    preview: '../../images/IMG_3229.JPG',
-    original: '../../images/IMG_3229.JPG',
+    preview: '../../../images/IMG_3229.JPG',
+    original: '../../../images/IMG_3229.JPG',
     description: 'Mama i Babcia',
   },
   {
-    preview: '../../images/IMG_3230.JPG',
-    original: '../../images/IMG_3230.JPG',
+    preview: './../../images/IMG_3230.JPG',
+    original: './../../images/IMG_3230.JPG',
     description: 'Tymek z Mamą',
   },
   {
