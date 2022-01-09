@@ -9,7 +9,7 @@ console.log(galleryContainer);
 const photoContainer = galleryItems
   .map(
     galleryItem =>
-      `<a class="gallery__item" href="${galleryItem.original}"> <img class="gallery__image" src="${galleryItem.preview}" data-caption="${galleryItem.description}" alt="${galleryItem.description}"/></a>`
+      `<a class="gallery__item" href="${galleryItem.original}"> <img class="gallery__image" src="${galleryItem.preview}" data-caption="${galleryItem.description}" alt="${galleryItem.description}" loading="lazy"/></a>`
   )
   .join('');
 galleryContainer.insertAdjacentHTML('beforeend', photoContainer);
