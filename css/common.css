@@ -24,7 +24,8 @@ button {
   cursor: pointer;
 }
 
-.title, .subtitle {
+.title,
+.subtitle {
   text-align: center;
   color: white;
 }
