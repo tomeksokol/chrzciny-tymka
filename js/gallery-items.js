@@ -5,8 +5,8 @@ export const galleryItems = [
     description: 'Rodzice, Babcia Jola, Gabriel',
   },
   {
-    preview: '../../images/IMG_3226.JPG',
-    original: '../../images/IMG_3226.JPG',
+    preview: '../images/1_zdj.jpg',
+    original: '../images/IMG_3226.JPG',
     description: 'Ciocia Sylwia, Gabriel',
   },
   {
